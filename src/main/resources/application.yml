@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: client1-application
+  profiles:
+    active: test
+  config:
+    import: optional:configserver:http://localhost:8181
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  # Expose all endpoints (use with caution in production)
+        # Or expose specific endpoints:
+        # include: health,info,metrics
+      base-path: /actuator  # Base path for actuator endpoints
+      
+server:
+  port: 8182     
